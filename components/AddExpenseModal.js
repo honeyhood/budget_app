@@ -12,7 +12,6 @@ export default function AddExpenseModal({
   const descriptionRef = useRef();
   const amountRef = useRef();
   const budgetIdRef = useRef();
-
   const { addExpense, budgets } = useBudgets();
 
   function handleSubmit(e) {
@@ -27,47 +26,49 @@ export default function AddExpenseModal({
   return (
     <div className={activeExpense ? "modal modal-open" : "modal"}>
       <div className="modal-box font-Montserrat">
-        <div className="form-control" onSubmit={handleSubmit}>
+        <form className="form-control">
           <h1 className="m-1 font-bold">Новые расходы</h1>
           <label className="label">
             <span className="label-text">Описание</span>
           </label>
           <input
             ref={descriptionRef}
-            required
             type="text"
-            className="input bg-base-200"
+            className="input bg-base-300"
           ></input>
           <label className="label">
             <span className="label-text">Сумма</span>
           </label>
           <input
             ref={amountRef}
-            required
-            type="text"
-            className="input bg-base-200"
+            type="number"
+            className="input bg-base-300"
           ></input>
           <label className="label">
             <span className="label-text">Название бюджета</span>
           </label>
-          <select
-            value={defaultBudgetId}
-            ref={budgetIdRef}
-            className="input bg-base-200"
-          >
-            <option id={UNCATEGORIZED_BUDGET_ID}>Без категории</option>
-            {budgets.map((budget) => (
-              <option key={budget.id} value={budget.id}>
-                {budget.name}
+          <form className="form-control">
+            <select
+              defaultvalue={defaultBudgetId}
+              ref={budgetIdRef}
+              className="select bg-base-300"
+            >
+              <option selected="selected" id={UNCATEGORIZED_BUDGET_ID}>
+                Без категории
               </option>
-            ))}
-          </select>
-        </div>
+              {budgets.map((budget) => (
+                <option key={budget.id} value={budget.id}>
+                  {budget.name}
+                </option>
+              ))}
+            </select>
+          </form>
+        </form>
         <div className="modal-action">
           <button
             onClick={handleSubmit}
             type="submit"
-            className="btn btn-md btn-primary"
+            className="btn btn-md btn-primary text-white"
           >
             Создать
           </button>

@@ -26,7 +26,7 @@ export default function AddBudgetModal({ activeBudget, setActiveBudget }) {
             ref={nameRef}
             required
             type="text"
-            className="input bg-base-200"
+            className="input bg-base-300"
           ></input>
           <label className="label">
             <span className="label-text">Максимальные расходы</span>
@@ -35,21 +35,18 @@ export default function AddBudgetModal({ activeBudget, setActiveBudget }) {
             ref={maxRef}
             required
             type="text"
-            className="input bg-base-200"
+            className="input bg-base-300"
           ></input>
         </div>
         <div className="modal-action">
           <button
             onClick={handleSubmit}
             type="submit"
-            className="btn btn-md btn-primary"
+            className="btn btn-md btn-primary text-white"
           >
             Создать
           </button>
-          <button
-            className="btn btn-md btn"
-            onClick={() => setActiveBudget(false)}
-          >
+          <button className="btn btn-md" onClick={() => setActiveBudget(false)}>
             Закрыть
           </button>
         </div>

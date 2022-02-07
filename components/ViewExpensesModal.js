@@ -42,7 +42,7 @@ export default function ViewExpensesModal({ budgetId, handleClose }) {
                 <div>{currencyFormatter.format(expense.amount)}</div>
                 <button
                   onClick={() => deleteExpense(expense)}
-                  className="btn btn-circle btn-sm ml-2"
+                  className="btn btn-circle btn-outline btn-sm ml-3"
                 >
                   &times;
                 </button>

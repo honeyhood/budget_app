@@ -10,7 +10,7 @@ export default function BudgetCard({
   onViewExpensesClick,
 }) {
   return (
-    <div className="card bg-neutral card-bordered mx-3 rounded-lg font-Montserrat">
+    <div className="card border mx-3 rounded-lg font-Montserrat bg-gray-100">
       <div className="card-body">
         <div className="title flex justify-between items-baseline pb-3">
           <div className="mr-2 text-[1.2em] font-medium">{name}</div>
@@ -29,7 +29,7 @@ export default function BudgetCard({
         {!hideButtons && (
           <div className="flex justify-between pt-3">
             <button
-              className="btn btn-md btn-outline"
+              className="btn btn-md btn-primary text-white mr-2"
               onClick={onAddExpenseClick}
             >
               Добавить
