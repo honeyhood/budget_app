@@ -18,11 +18,17 @@ export const BudgetsProvider = ({ children }) => {
     return expenses.filter((expense) => expense.budgetId === budgetId);
   }
   function addExpense({ description, amount, budgetId }) {
+    if (amount < 0) {
+      return null;
+    }
     setExpenses((prevExpenses) => {
       return [...prevExpenses, { id: uuidV4(), description, amount, budgetId }];
     });
   }
   function addBudget({ name, max }) {
+    if (max < 0) {
+      return null;
+    }
     setBudgets((prevBudgets) => {
       if (prevBudgets.find((budget) => budget.name === name)) {
         return prevBudgets; //в случае если совпадают названия бюджетов
