@@ -32,7 +32,7 @@ export default function ViewExpensesModal({ budgetId, handleClose }) {
             </button>
           )}
         </div>
-        <div className="card p-2 flex-col">
+        <div className="card flex-col p-2">
           {expenses.map((expense) => (
             <div className="flex justify-between" key={expense.id}>
               <div>

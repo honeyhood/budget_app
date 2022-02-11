@@ -10,14 +10,14 @@ export default function BudgetCard({
   onViewExpensesClick,
 }) {
   return (
-    <div className="card border w-full md:w-fit mx-3 mb-6 rounded-lg font-Montserrat bg-gray-100">
+    <div className="card font-Montserrat mx-3 mb-6 w-full rounded-lg border bg-gray-100 md:w-fit">
       <div className="card-body">
-        <div className="title flex justify-between items-baseline pb-3">
+        <div className="title flex items-baseline justify-between pb-3">
           <div className="mr-2 text-[1.2em] font-medium">{name}</div>
           <div className="flex items-baseline text-[1.2em] font-medium">
             {currencyFormatter.format(amount)}
             {max && (
-              <span className="text-gray-400 font-light ml-1 text-[14px]">
+              <span className="ml-1 text-[14px] font-light text-gray-400">
                 / {currencyFormatter.format(max)}
               </span>
             )}
@@ -29,7 +29,7 @@ export default function BudgetCard({
         {!hideButtons && (
           <div className="flex justify-between pt-3">
             <button
-              className="btn btn-md btn-primary text-white mr-2"
+              className="btn btn-md btn-primary mr-2 text-white"
               onClick={onAddExpenseClick}
             >
               Добавить
