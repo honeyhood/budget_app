@@ -1,20 +1,20 @@
-import { useRef } from "react";
+import { useState } from "react";
 import { useBudgets } from "../contexts/BudgetsContext";
 
 export default function AddBudgetModal({ activeBudget, setActiveBudget }) {
-  const nameRef = useRef();
-  const maxRef = useRef();
+  const [name, setName] = useState();
+  const [max, setMax] = useState();
   const { addBudget } = useBudgets();
 
   function handleSubmit(e) {
     e.preventDefault();
     addBudget({
-      name: nameRef.current.value,
-      max: parseFloat(maxRef.current.value),
+      name: name,
+      max: parseFloat(max),
     });
     setActiveBudget(false);
-    nameRef.current.value = "";
-    maxRef.current.value = "";
+    setName("");
+    setMax("");
   }
   return (
     <div className={activeBudget ? "modal modal-open" : "modal"}>
@@ -25,7 +25,8 @@ export default function AddBudgetModal({ activeBudget, setActiveBudget }) {
             <span className="label-text">Название</span>
           </label>
           <input
-            ref={nameRef}
+            value={name}
+            onChange={(e) => setName(e.target.value)}
             required
             type="text"
             className="input bg-base-300"
@@ -34,7 +35,8 @@ export default function AddBudgetModal({ activeBudget, setActiveBudget }) {
             <span className="label-text">Максимальные расходы</span>
           </label>
           <input
-            ref={maxRef}
+            value={max}
+            onChange={(e) => setMax(e.target.value)}
             required
             type="text"
             className="input bg-base-300"

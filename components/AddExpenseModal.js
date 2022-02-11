@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useState } from "react";
 import {
   UNCATEGORIZED_BUDGET_ID,
   useBudgets,
@@ -9,22 +9,22 @@ export default function AddExpenseModal({
   setActiveExpense,
   defaultBudgetId,
 }) {
-  const descriptionRef = useRef();
-  const amountRef = useRef();
-  const budgetIdRef = useRef();
+  const [description, setDescription] = useState();
+  const [amount, setAmount] = useState();
+  const [budgetId, setBudgetId] = useState();
   const { addExpense, budgets } = useBudgets();
 
   function handleSubmit(e) {
     e.preventDefault();
     addExpense({
-      description: descriptionRef.current.value,
-      amount: parseFloat(amountRef.current.value),
-      budgetId: budgetIdRef.current.value,
+      description: description,
+      amount: parseFloat(amount),
+      budgetId: budgetId,
     });
     setActiveExpense(false);
-    descriptionRef.current.value = "";
-    amountRef.current.value = "";
-    budgetIdRef.current.value = UNCATEGORIZED_BUDGET_ID;
+    setDescription("");
+    setAmount("");
+    setBudgetId(UNCATEGORIZED_BUDGET_ID);
   }
   return (
     <div className={activeExpense ? "modal modal-open" : "modal"}>
@@ -35,7 +35,8 @@ export default function AddExpenseModal({
             <span className="label-text">Описание</span>
           </label>
           <input
-            ref={descriptionRef}
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
             type="text"
             className="input bg-base-300"
           ></input>
@@ -43,7 +44,8 @@ export default function AddExpenseModal({
             <span className="label-text">Сумма</span>
           </label>
           <input
-            ref={amountRef}
+            value={amount}
+            onChange={(e) => setAmount(e.target.value)}
             type="number"
             className="input bg-base-300"
           ></input>
@@ -53,7 +55,8 @@ export default function AddExpenseModal({
           <form className="form-control">
             <select
               defaultvalue={defaultBudgetId}
-              ref={budgetIdRef}
+              value={budgetId}
+              onChange={(e) => setBudgetId(e.target.value)}
               className="select bg-base-300"
             >
               <option selected="selected" id={UNCATEGORIZED_BUDGET_ID}>
