@@ -10,7 +10,7 @@ export default function BudgetCard({
   onViewExpensesClick,
 }) {
   return (
-    <div className="card border mx-3 rounded-lg font-Montserrat bg-gray-100">
+    <div className="card border w-full md:w-fit mx-3 mb-6 rounded-lg font-Montserrat bg-gray-100">
       <div className="card-body">
         <div className="title flex justify-between items-baseline pb-3">
           <div className="mr-2 text-[1.2em] font-medium">{name}</div>

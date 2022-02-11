@@ -28,7 +28,7 @@ export default function Home() {
         setActiveBudget={setShowAddBudgetModal}
         setActiveExpense={openAddExpenseModal}
       />
-      <div className="grid grid-cols-card gap-[1rem] items-start m-2">
+      <div className="flex flex-wrap justify-center items-center md:justify-start md:items-start mx-3">
         {budgets.map((budget) => {
           const amount = getBudgetExpenses(budget.id).reduce(
             (total, expense) => total + expense.amount,

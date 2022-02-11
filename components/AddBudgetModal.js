@@ -13,6 +13,8 @@ export default function AddBudgetModal({ activeBudget, setActiveBudget }) {
       max: parseFloat(maxRef.current.value),
     });
     setActiveBudget(false);
+    nameRef.current.value = "";
+    maxRef.current.value = "";
   }
   return (
     <div className={activeBudget ? "modal modal-open" : "modal"}>

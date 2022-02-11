@@ -22,6 +22,9 @@ export default function AddExpenseModal({
       budgetId: budgetIdRef.current.value,
     });
     setActiveExpense(false);
+    descriptionRef.current.value = "";
+    amountRef.current.value = "";
+    budgetIdRef.current.value = UNCATEGORIZED_BUDGET_ID;
   }
   return (
     <div className={activeExpense ? "modal modal-open" : "modal"}>
