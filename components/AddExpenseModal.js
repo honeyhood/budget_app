@@ -54,14 +54,12 @@ export default function AddExpenseModal({
           </label>
           <form className="form-control">
             <select
-              defaultvalue={defaultBudgetId}
+              defaultValue={defaultBudgetId}
               value={budgetId}
               onChange={(e) => setBudgetId(e.target.value)}
               className="select bg-base-300"
             >
-              <option selected="selected" id={UNCATEGORIZED_BUDGET_ID}>
-                Без категории
-              </option>
+              <option id={UNCATEGORIZED_BUDGET_ID}>Без категории</option>
               {budgets.map((budget) => (
                 <option key={budget.id} value={budget.id}>
                   {budget.name}
