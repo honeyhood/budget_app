@@ -11,7 +11,7 @@ export default function AddExpenseModal({
 }) {
   const [description, setDescription] = useState();
   const [amount, setAmount] = useState();
-  const [budgetId, setBudgetId] = useState();
+  const [budgetId, setBudgetId] = useState(UNCATEGORIZED_BUDGET_ID);
   const { addExpense, budgets } = useBudgets();
 
   function handleSubmit(e) {
@@ -74,7 +74,7 @@ export default function AddExpenseModal({
           <button
             onClick={handleSubmit}
             type="submit"
-            className="btn btn-md btn-primary text-white"
+            className="btn btn-primary btn-md text-white"
           >
             Создать
           </button>

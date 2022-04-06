@@ -25,9 +25,9 @@ export default function AddBudgetModal({ activeBudget, setActiveBudget }) {
             <span className="label-text">Название</span>
           </label>
           <input
+            required
             value={name}
             onChange={(e) => setName(e.target.value)}
-            required
             type="text"
             className="input bg-base-300"
           ></input>
@@ -35,9 +35,9 @@ export default function AddBudgetModal({ activeBudget, setActiveBudget }) {
             <span className="label-text">Максимальные расходы</span>
           </label>
           <input
+            required
             value={max}
             onChange={(e) => setMax(e.target.value)}
-            required
             type="text"
             className="input bg-base-300"
           ></input>
@@ -46,7 +46,7 @@ export default function AddBudgetModal({ activeBudget, setActiveBudget }) {
           <button
             onClick={handleSubmit}
             type="submit"
-            className="btn btn-md btn-primary text-white"
+            className="btn btn-primary btn-md text-white"
           >
             Создать
           </button>

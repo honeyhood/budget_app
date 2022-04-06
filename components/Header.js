@@ -1,7 +1,7 @@
 export default function Header({ setActiveBudget, setActiveExpense }) {
   return (
     <div className="mx-2 my-6 flex items-center justify-center rounded-xl border bg-gray-100 p-3 sm:justify-between md:mx-6">
-      <div className="">
+      <div>
         <h1 className="font-Montserrat ml-2 hidden text-sm font-bold text-black sm:inline md:text-lg lg:text-xl">
           Budget App
         </h1>
