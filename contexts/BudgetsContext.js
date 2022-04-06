@@ -18,6 +18,9 @@ export const BudgetsProvider = ({ children }) => {
     return expenses.filter((expense) => expense.budgetId === budgetId);
   }
   function addExpense({ description, amount, budgetId }) {
+    if (!description) {
+      return null;
+    }
     if (amount < 1) {
       return null;
     }
@@ -26,6 +29,9 @@ export const BudgetsProvider = ({ children }) => {
     });
   }
   function addBudget({ name, max }) {
+    if (!name) {
+      return null;
+    }
     if (max < 1) {
       return null;
     }
